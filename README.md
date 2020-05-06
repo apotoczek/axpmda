@@ -73,3 +73,12 @@ http://127.0.0.1:8000/mood/v1/
 Setup new users via Django admin superuser
 
 Users can login/logout via Login link on /mood/v1/ or directly at /api-auth/login/?next=/mood/v1/
+
+## Production
+
+Notes for production deployment:
+
+- segregate django settings into enviornments; **base** settings for all envs, **local** settings, **prod** settings (and any other envs desired)
+- include a credentials file pulled from something like a private S3 bucket with env vars/creds for each enviornment
+- add CORS and whitelist correct domains
+- for AWS, setup EB deployment
