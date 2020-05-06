@@ -49,6 +49,7 @@ Clone repo into dir like ~/git/axpmda, checkout **develop** branch and activate 
 `
 adx5000@~/git/axpmda (develop)$ workon axpmda
 `
+
 `(axpmda) adx5000@~/git/axpmda (develop)$ pip install -r dev-requirements.txt`
 
 Migrate
@@ -71,4 +72,4 @@ http://127.0.0.1:8000/mood/v1/
 
 Setup new users via Django admin superuser
 
-Users can login/logout via Login link on /mood/v1/
+Users can login/logout via Login link on /mood/v1/ or directly at /api-auth/login/?next=/mood/v1/
