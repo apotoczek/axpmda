@@ -10,6 +10,12 @@ Use the **develop** branch to run locally: localhost:8000/mood/v1/
 
 See additional README updates on **develop**
 
+## Contents
+
+- [Setup](https://github.com/apotoczek/axpmda#setup)
+- [API Functionality](https://github.com/apotoczek/axpmda#api-functionality)
+- [Production](https://github.com/apotoczek/axpmda#production)
+
 
 ## Setup
 
