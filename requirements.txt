@@ -1,0 +1,4 @@
+django==2.2.12
+psycopg2==2.8.5
+djangorestframework==3.11.0
+
