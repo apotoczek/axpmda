@@ -9,15 +9,15 @@ class MoodapiTests(TestCase):
         testuser123 = User.objects.create_user(username='testuser123', password='pass123')
         testuser123.save()
         test_mood = Mood.objects.create(
-            user=testuser123, mood='Optimistic', details='Feeling good!')
+            user=testuser123, mood='Optimistic', details='Feeling good')
         test_mood.save()
 
     def test_moods(self):
-        mood = Mood.objects.get(id=1)
-        user = f'{mood.user}'
-        mood = f'{mood.mood}'
-        details = f'{mood.details}'
+        obj = Mood.objects.get(id=1)
+        user = f'{obj.user}'
+        mood = f'{obj.mood}'
+        details = f'{obj.details}'
 
         self.assertEqual(user, 'testuser123')
         self.assertEqual(mood, 'Optimistic')
-        self.assertEqual(details, 'Feeling good!')
+        self.assertEqual(details, 'Feeling good')
