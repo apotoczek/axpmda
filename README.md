@@ -14,10 +14,13 @@ See additional README updates on **develop**
 
 - [Setup](https://github.com/apotoczek/axpmda#setup)
 - [API Functionality](https://github.com/apotoczek/axpmda#api-functionality)
+- [Docker](https://github.com/apotoczek/axpmda#docker)
 - [Production](https://github.com/apotoczek/axpmda#production)
 
 
 ## Setup
+
+Setup for virtualenvwrapper (see Docker section separately), uses axpmda_settings.py
 
 Clone repo to local and checkout **develop** branch
 
@@ -45,7 +48,7 @@ export RDS_USERNAME=postgres
 export RDS_PASSWORD=
 export RDS_HOSTNAME=localhost
 export RDS_PORT=5432
-export DJANGO_SETTINGS_MODULE=moodapi_project.settings
+export DJANGO_SETTINGS_MODULE=moodapi_project.axpmda_settings
 export DJANGO_SECRET_KEY="generate your own secret key here"
 
 ```
@@ -119,6 +122,40 @@ Content:
     * shows single mood using mood id, if it exists for your user
 
 Note: you must be logged-in and can only view, add or modify moods associated with your user
+
+## Docker
+
+Python 3.8, Django 2.2.12, psycopg2-binary 2.8.4, djangorestframework 3.11.0, postgres 10
+
+Database for Docker in settings.py
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql', 'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432
+    }
+}
+```
+
+```
+adx5000@~/git/axpmda (develop)$ docker-compose up -d --build
+adx5000@~/git/axpmda (develop)$ docker-compose exec web python manage.py migrate
+adx5000@~/git/axpmda (develop)$ docker-compose exec web python manage.py createsuperuser
+```
+
+```
+adx5000@~/git/axpmda (develop)$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+c9270a8d39b1        axpmda_web          "python /axpmda/mana…"   7 minutes ago       Up 7 minutes        0.0.0.0:8000->8000/tcp   axpmda_web_1
+17c8a416abe5        postgres:10         "docker-entrypoint.s…"   7 minutes ago       Up 7 minutes        5432/tcp                 axpmda_db_1
+```
+
+Endpoints should be available from Docker at 127.0.0.1:8000/[endpoints]
+
+Note: create a superuser, and additional users in /admin/, then add Moods via /admin/
 
 ## Production
 
