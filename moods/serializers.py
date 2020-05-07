@@ -146,8 +146,11 @@ class ReportSerializer(serializers.ModelSerializer):
         avg_others_longest_streak = 0
         for x in others_longest_streaks:
             avg_others_longest_streak += x
-        avg_others_longest_streak = avg_others_longest_streak / len(others_longest_streaks)
-        streak_percentile_decimal = ((my_longest_streak - avg_others_longest_streak) / avg_others_longest_streak)
+        if len(others_longest_streaks) > 0:
+            avg_others_longest_streak = avg_others_longest_streak / len(others_longest_streaks)
+        streak_percentile_decimal = 0
+        if avg_others_longest_streak > 0:
+            streak_percentile_decimal = ((my_longest_streak - avg_others_longest_streak) / avg_others_longest_streak)
 
         return round(streak_percentile_decimal, 2)
 
