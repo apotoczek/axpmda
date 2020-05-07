@@ -87,12 +87,6 @@ WSGI_APPLICATION = 'moodapi_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-print('database h: {} d: {} U: {}'.format(
-    os.environ['RDS_HOSTNAME'],
-    os.environ['RDS_DB_NAME'],
-    os.environ['RDS_USERNAME'],
-))
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -134,7 +128,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
