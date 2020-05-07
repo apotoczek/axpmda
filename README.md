@@ -74,11 +74,17 @@ Go to http://127.0.0.1:8000/ to load default Django home page, then go to http:/
 
 ## API Functionality
 
-http://127.0.0.1:8000/mood/v1/
-
 Setup new users via Django admin superuser
 
 Users can login/logout via Login link on /mood/v1/ or directly at /api-auth/login/?next=/mood/v1/
+
+**Endpoints**
+
+- get report: 127.0.0.1:8000/mood/v1/
+- get list: 127.0.0.1:8000/mood/v1/moods/
+- get detail: 127.0.0.1:8000/mood/v1/moods/1/ (specify <int:pk> like 1 if it exists)
+
+Note: you must be logged-in and can only view, add or modify moods associated with your user
 
 ## Production
 
