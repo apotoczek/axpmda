@@ -12,11 +12,21 @@ See additional README updates on **develop**
 
 ## Contents
 
+- [About](https://github.com/apotoczek/axpmda#about)
 - [Setup](https://github.com/apotoczek/axpmda#setup)
 - [API Functionality](https://github.com/apotoczek/axpmda#api-functionality)
 - [Docker](https://github.com/apotoczek/axpmda#docker)
 - [Production](https://github.com/apotoczek/axpmda#production)
 
+## About
+
+REST application with a '/mood' endpoint, which when POSTed to persists the submitted mood value.
+
+Users login via Django's authentication UI.
+
+The '/mood' endpoint allows logged-in users to GET values submitted by the logged-in user.
+
+The ‘/mood’ endpoint returns, among other things, the length of their current "streak".  A user is on a “streak” if that user has submitted at least 1 mood rating for each consecutive day of that streak.  For example, if on March 1st, March 2nd, March 3rd, and March 5th the user entered mood ratings, a 3-day streak will apply to the March 3rd rating and the streak will reset to a 1-day streak for the March 5th rating.  The user's streak's percentile is a comparison to other users.
 
 ## Setup
 
