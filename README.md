@@ -15,6 +15,8 @@ See additional README updates on **develop**
 - [About](https://github.com/apotoczek/axpmda#about)
 - [Setup](https://github.com/apotoczek/axpmda#setup)
 - [API Functionality](https://github.com/apotoczek/axpmda#api-functionality)
+- [GET and POST Requests](https://github.com/apotoczek/axpmda#get-and-post-requests)
+- [Postman](https://github.com/apotoczek/axpmda#postman)
 - [Docker](https://github.com/apotoczek/axpmda#docker)
 - [Production](https://github.com/apotoczek/axpmda#production)
 
@@ -132,6 +134,27 @@ Content:
     * shows single mood using mood id, if it exists for your user
 
 Note: you must be logged-in and can only view, add or modify moods associated with your user
+
+## GET and POST Requests
+
+See examples of the GET and POST request headers/payloads [docs/axpmda_example_get_and_post.pdf](./docs/axpmda_example_get_and_post.pdf)
+
+## Postman
+
+You can also use Postman:
+
+1. Install the Postman Chrome extension
+2. Navigate to 127.0.0.1:8000/admin/ and login
+3. Using the extension, click ON for Capture requests and cookies
+4. Open the Chrome web inspector for 127.0.0.1:8000/mood/v1/ or other call
+5. In the inspector Network tab, find the GET or POST call (should have ?format)
+6. Right click the call, Copy > cURL
+7. Go to Postman, create a blank New Request and click Import (upper left)
+8. Select Raw Textn tab, past the cURL, Continue
+9. SEND the auto-populated request which now has your auth cookie
+10. You will get a proper response like via a browser call
+
+![Postman Example](docs/postman_example.png)
 
 ## Docker
 
